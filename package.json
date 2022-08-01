@@ -1,0 +1,26 @@
+{
+  "name": "layouts-css-masterclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:compile": "node-sass sass/main.scss css/style.css --w",
+    "sass:watch": "live-server",
+    "sass:dev": "start npm run sass:compile && npm run sass:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pestsov-v/layouts-css-masterclass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pestsov-v/layouts-css-masterclass/issues"
+  },
+  "homepage": "https://github.com/pestsov-v/layouts-css-masterclass#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "live-server": "^1.2.2"
+  }
+}
