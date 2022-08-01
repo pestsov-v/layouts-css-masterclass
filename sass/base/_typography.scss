@@ -37,3 +37,30 @@ body {
 		animation-delay: 500ms;
 	}
 }
+
+.heading-secondary {
+	font-size: 3.5rem;
+	// переводит весь текст в большие буквы
+	text-transform: uppercase;
+	// толщина шрифта
+	font-weight: 700;
+	// переводит с блока в блок со сотрочными свойствами
+	display: inline-block;
+	// градиентный цвет
+	background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	// делает цвет строчного блока по цвету родителя, а цвет текста в цвет бэкграунд имедж
+	-webkit-background-clip: text;
+	color: transparent;
+	// задержка анимции при всех случаях (в том числе и при хавере)
+	transition: all 0.2s;
+	// поднятие расстояния между буквами
+	letter-spacing: 0.2rem;
+
+
+	&:hover {
+		// правый край опускается на 2 дег и разворот на 15 дег
+		transform: skewY(2deg) skewX(15deg) scale(1.1);
+		// тень перед элементом
+		text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2); 
+	}
+}
