@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css --w"
+    "sass:compile": "node-sass sass/main.scss css/style.css --w",
+    "sass:watch": "live-server",
+    "sass:dev": "start npm run sass:compile && npm run sass:watch"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/pestsov-v/layouts-css-masterclass#readme",
   "devDependencies": {
-    "node-sass": "^7.0.1"
+    "node-sass": "^7.0.1",
+    "live-server": "^1.2.2"
   }
 }
