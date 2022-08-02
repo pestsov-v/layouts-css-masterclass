@@ -50,6 +50,7 @@ body {
 	background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
 	// делает цвет строчного блока по цвету родителя, а цвет текста в цвет бэкграунд имедж
 	-webkit-background-clip: text;
+	background-clip: text;
 	color: transparent;
 	// задержка анимции при всех случаях (в том числе и при хавере)
 	transition: all 0.2s;

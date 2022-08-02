@@ -3,11 +3,10 @@
 	perspective: 150rem;
 	-moz-perspective: 150rem;
 	position: relative;
-	height: 50rem;
+	height: 52rem;
 
 	&__side {
-		color: $color-white;
-		height: 50rem;
+		height: 52rem;
 		transition: all 0.8s ease;
 		// накладывает всех потомков друг на друга (начало у всех одинаковое)
 		position: absolute;
@@ -17,7 +16,8 @@
 		// скрыть разбежность в анимации (фронт прокручивается слева на право, бек прокручивается с право на лево...теперь нет)
 		backface-visibility: hidden;
 		border-radius: 3px;
-		box-shadow: 0 1.rem 4rem rgba($color-black, 0.15);
+		overflow: hidden;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
 		&--front {
 			background-color: white;
@@ -41,5 +41,79 @@
 
 		&:hover &__side--back {
 		transform: rotateY(0);
+	}
+
+	// front side style
+	&__picture {
+		background-size: cover;
+		height: 23rem;
+		// накладывает градиент на каждой картинке (картинка приобретает цвет градиента, который становится прозрачным. Не работает в майкрософт эдж)
+		// по сути является фильтром как в инстаграмме при загрузке фоток и выборе определенного фильтра
+		background-blend-mode: screen;
+		// создание обрезаной картинки снизу
+		// не работает с интернет эксплорер и майкрософт едж
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+		&--1 {
+			// https://unsplash.com/
+			background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), 
+			url(../../img/nat-5.jpg);
+		}
+
+		&--2 {
+			background-image: url(../../img/nat-5.jpg);
+		}
+
+		&--3 {
+			background-image: url(../../img/nat-5.jpg);
+		}
+	}
+
+	&__heading {
+		font-size: 2.8rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		text-align: right;
+		color: $color-white;
+		position: absolute;
+		top: 12rem;
+		right: 2rem;
+		width: 75%;
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		// оформление блока определяется для каждого блока отдельно!
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+
+		&--1 {
+			// градиент на спан
+			background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.85), rgba($color-secondary-dark, 0.85));
+		}
+	}
+
+	&__details {
+		padding: 3rem;
+
+		ul {
+			// удаление маркеров или нумерации списка
+			list-style: none;
+			width: 80%;
+			// убирает отступы, чтобы текст стал по центру
+			margin: 0 auto;
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+
+				&:not(:last-child) {
+					// делает черту толщиной 1 пиксель соответствующего цвета под всеми элементами кроме последнего
+					border-bottom: 1px solid $color-grey-ligth-2;
+				}
+			}
+		}
 	}
 }
