@@ -1,0 +1,45 @@
+.card {
+	// прокрутка карточки
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position: relative;
+	height: 50rem;
+
+	&__side {
+		color: $color-white;
+		height: 50rem;
+		transition: all 0.8s ease;
+		// накладывает всех потомков друг на друга (начало у всех одинаковое)
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		// скрыть разбежность в анимации (фронт прокручивается слева на право, бек прокручивается с право на лево...теперь нет)
+		backface-visibility: hidden;
+		border-radius: 3px;
+		box-shadow: 0 1.rem 4rem rgba($color-black, 0.15);
+
+		&--front {
+			background-color: white;
+		}
+
+		&--back {
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+ 		}
+	}
+
+
+
+		// разворот на 180 граудсов при наведении
+		&:hover &__side--front {
+		transform: rotateY(180deg);
+		}
+
+		&:hover &__side--back {
+		transform: rotateY(0);
+	}
+}
