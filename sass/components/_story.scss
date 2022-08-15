@@ -24,13 +24,55 @@
 		clip-path: circle(50% at 50% 50%);
 		// раздвигание текста по осе икс от края блока
 		transform: translateX(-3rem) skewX(12deg);
+		position: relative;
+		overflow: hidden;
+		border-radius: 50%;
 	}
 
 	&__image {
-		height: 100%;
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
 	}
 
 	&__text {
 		transform: skewX(12deg);
+	}
+
+	&__caption {
+		// чтобы иметь возможность накладывать один элемент на другой. выравнивают по левому верхнему краю
+		position: absolute;
+		// середина по центру
+		top: 50%;
+		// середина по левому краю.
+		left: 50%;
+		// выравнивание по центру и от низа 20%
+		transform: translate(-50%, 20%);
+		// цвет текста
+		color: $color-white;
+		text-transform: uppercase;
+		// размер текста
+		font-size: 1.7rem;
+		// размещения текста
+		text-align: center;
+		// делает видимость текста 0
+		opacity: 0;
+		// работа анимации 0.5с
+		transition: all 0.5s;
+		backface-visibility: hidden;
+	}
+
+	&:hover &__caption {
+		// видимость текста 100%
+		opacity: 1;
+		// поднимает вверх на центр
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover &__image {
+		transform: translateX(-4rem);
+		// задымляет задник
+		 filter: blur(3px) brightness(80%);
 	}
 }
