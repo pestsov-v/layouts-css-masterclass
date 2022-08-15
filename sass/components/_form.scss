@@ -1,0 +1,63 @@
+.form {
+	&__group:not(:last-child) {
+		// опускает все кроме последнего потомка
+		margin-bottom: 2rem;
+	}
+
+	&__input {
+		// размер текста
+		font-size: 1.5rem;
+		// растягивает текст более компортно
+		font-family: inherit;
+		//  отступы
+		padding: 1.5rem 2rem;
+		//скругления
+		border-radius: 2px;
+		// дефолт свойства в цветах
+		color: inherit;
+		// цвет инпутов
+		background-color: rgba($color-white, 0.5);
+		// отключает обводку инпута
+		border: none;
+		border-bottom: 3px solid transparent;
+		// ширина блока
+		width: 90%;
+		// является блоком
+		display: block;
+		
+		&:focus {
+			// отключает обводку
+			outline: none;
+			// тень  инпута
+			box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+			// снизу подветка
+			border-bottom: 3px solid $color-primary;
+		}
+
+		// если фокус и там введено не верное значение
+		&:focus:invalid {
+			border-bottom: 3px solid $color-secondary-dark;
+		}
+
+		&::-webkit-input-placeholder {
+			color: $color-grey-dark-2;
+		}
+	}
+
+	&__label {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-left: 2rem;
+		margin-top: 0.7rem;
+		display: block;
+		// анимация плейсхолдера + лабеля
+		transition: all 0.3s;
+	}
+
+	// селектор который объеденяет показ плейсхолдера и свйоства лабеля в одном
+	&__input:placeholder-shown + &__label {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-4rem);
+	}
+}
